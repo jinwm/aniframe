@@ -50,18 +50,18 @@ new AniFrame(options);
 | options.onPlayEnd  | Function     | 可选，播放结束的回调函数                      |
 
 # 实例方法
-load
+load  
 myAniFrame.load();
-加载图片，如果不传参数，当图片未加载时自动加载图片。
+options.autoLoadImgs为false时，则需要调用该方法加载图片。
 
-play
+play  
 myAniFrame.play();
 播放动画
 
-pause
+pause  
 myAniFrame.pause();
 暂停动画
 
-destroy 
+destroy  
 myAniFrame.destroy();
 销毁
