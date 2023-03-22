@@ -1,8 +1,8 @@
 # AniFrame
 AniFrame 是一个基于 Canvas 的图片帧动画插件，它可以在 Canvas 中播放一组图片来创建动画效果。它可以很方便地嵌入到网页中，轻松实现帧动画效果。
 # 安装
-在 HTML 文件中引入 AniFrame 的 js 文件。
-<script src="AniFrame.js"></script>
+在 HTML 文件中引入 aniframe 的 js 文件。
+<script src="aniframe.js"></script>
 
 # 使用方法
 var myAniFrame = new AniFrame({  
