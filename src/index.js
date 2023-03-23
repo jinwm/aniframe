@@ -1,4 +1,4 @@
-var AniFrame = (function (window, document) {
+(function (window, document) {
     var container = null, 
         imgs = [], 
         width = null, 
@@ -27,7 +27,7 @@ var AniFrame = (function (window, document) {
         function (callback) {
             window.setTimeout(callback, speed);
         }
-    class myFrame {
+    class AniFrame {
         constructor(options) {
             container = options.container ? options.container : container;
             imgs = options.imgs ? options.imgs : imgs;
@@ -48,7 +48,7 @@ var AniFrame = (function (window, document) {
             cvs.style.inset = '0';
             cvs.style.margin = 'auto';
             cvs.style.position = 'absolute';
-            cvs.id = 'AniFrame';
+            cvs.id = 'aniFrameCvs';
             cvs.width = width;
             cvs.height = height;
 
@@ -56,12 +56,12 @@ var AniFrame = (function (window, document) {
         }
     }
 
-    myFrame.prototype.load = function () {
+    AniFrame.prototype.load = function () {
         if(isInit) return;
         if (!autoLoadImgs) loadImages();
     }
 
-    myFrame.prototype.play = function () {
+    AniFrame.prototype.play = function () {
         if (isPlay) return;
         isPlay = true;
         if (isInit) return draw();
@@ -70,11 +70,11 @@ var AniFrame = (function (window, document) {
         });
     }
 
-    myFrame.prototype.pause = function () {
+    AniFrame.prototype.pause = function () {
         isPlay = autoplay = false;
     }
 
-    myFrame.prototype.destroy = function () {
+    AniFrame.prototype.destroy = function () {
         this.pause();
 
         container.removeChild(cvs);
@@ -159,7 +159,7 @@ var AniFrame = (function (window, document) {
         }
     }
 
-    window.AniFrame = myFrame;
+    window.AniFrame = AniFrame;
 
-    return myFrame;
+    return AniFrame;
 })(window, document);
