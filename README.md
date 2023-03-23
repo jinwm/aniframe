@@ -2,9 +2,12 @@
 AniFrame 是一个基于 Canvas 的图片帧动画插件，它可以在 Canvas 中播放一组图片来创建动画效果。它可以很方便地嵌入到网页中，轻松实现帧动画效果。
 # 安装
 在 HTML 文件中引入 aniframe 的 js 文件。
+```HTML
 <script src="aniframe.js"></script>
+```
 
 # 使用方法
+```javascript
 var myAniFrame = new AniFrame({  
     container: document.getElementById('myCanvas'), // Canvas 容器  
     imgs: ['img/frame1.png', 'img/frame2.png', 'img/frame3.png'], // 图片列表  
@@ -30,6 +33,7 @@ var myAniFrame = new AniFrame({
     }  
 });  
 myAniFrame.play(); // 播放动画
+```
 
 # 参数
 new AniFrame(options);
@@ -51,17 +55,17 @@ new AniFrame(options);
 
 # 实例方法
 load  
-myAniFrame.load();
+myAniFrame.load();  
 options.autoLoadImgs为false时，则需要调用该方法加载图片。
 
 play  
-myAniFrame.play();
+myAniFrame.play();  
 播放动画
 
 pause  
-myAniFrame.pause();
+myAniFrame.pause();  
 暂停动画
 
 destroy  
-myAniFrame.destroy();
+myAniFrame.destroy();  
 销毁
