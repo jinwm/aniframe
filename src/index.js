@@ -160,6 +160,4 @@
     }
 
     window.AniFrame = AniFrame;
-
-    return AniFrame;
 })(window, document);
