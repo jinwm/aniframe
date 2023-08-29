@@ -18,17 +18,17 @@ var myAniFrame = new AniFrame({
     autoplay: true, // 是否自动播放  
     autoLoadImgs: true, // 是否自动加载图片  
     coverSrc: 'img/cover.png', // 封面图片  
-    onCompvare: function (images) { // 所有图片加载完成的回调函数  
+    onReady: function (images) { // 所有图片加载完成的回调函数  
         console.log('All images are loaded!');  
     },  
-    onExecution: function (index, progress) { // 播放中的回调函数  
+    onPlaying: function (index, progress) { // 播放中的回调函数  
         console.log('Current index:', index);  
         console.log('Current progress:', progress);  
     },  
     onPlay: function () { // 播放开始的回调函数  
         console.log('Start playing!');  
     },  
-    onPlayEnd: function () { // 播放结束的回调函数  
+    onEnded: function () { // 播放结束的回调函数  
         console.log('Play ends!');  
     }  
 });  
@@ -48,10 +48,10 @@ new AniFrame(options);
 | options.autoplay   | Boolean      | 可选，是否自动播放，默认为 false               |
 | options.autoLoadImgs | Boolean    | 可选，是否自动加载图片，默认为 true           |
 | options.coverSrc   | String       | 可选，封面图片路径，默认为图片列表的第一张    |
-| options.onCompvare | Function     | 可选，所有图片加载完成的回调函数              |
-| options.onExecution| Function     | 可选，播放中的回调函数                        |
+| options.onReady | Function     | 可选，所有图片加载完成的回调函数              |
+| options.onPlaying| Function     | 可选，播放中的回调函数                        |
 | options.onPlay     | Function     | 可选，播放开始的回调函数                      |
-| options.onPlayEnd  | Function     | 可选，播放结束的回调函数                      |
+| options.onEnded  | Function     | 可选，播放结束的回调函数                      |
 
 # 实例方法
 load  
