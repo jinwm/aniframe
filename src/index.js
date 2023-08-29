@@ -8,10 +8,10 @@
         autoplay = false,
         autoLoadImgs = true, 
         coverSrc = null,
-        onCompvare = null,
-        onExecution = null,
+        onReady = null,
+        onPlaying = null,
         onPlay = null, 
-        onPlayEnd = null, 
+        onEnded = null, 
         progress = 0, 
         curIndex = 0, 
         isInit = false, 
@@ -38,10 +38,10 @@
             autoplay = options.autoplay ? options.autoplay : autoplay;
             autoLoadImgs = options.autoLoadImgs ? options.autoLoadImgs : autoLoadImgs;
             coverSrc = options.coverSrc ? options.coverSrc : (options.imgs[0] ? options.imgs[0] : null);
-            onCompvare = typeof options.onCompvare === 'function' ? options.onCompvare : null;
-            onExecution = typeof options.onExecution === 'function' ? options.onExecution : null;
+            onReady = typeof options.onReady === 'function' ? options.onReady : null;
+            onPlaying = typeof options.onPlaying === 'function' ? options.onPlaying : null;
             onPlay = typeof options.onPlay === 'function' ? options.onPlay : null;
-            onPlayEnd = typeof options.onPlayEnd === 'function' ? options.onPlayEnd : null;
+            onEnded = typeof options.onEnded === 'function' ? options.onEnded : null;
 
             cvs.style.width = '100%';
             cvs.style.height = 'auto';
@@ -84,10 +84,10 @@
         imgs.length = 0;
         loader.length = 0;
 
-        onCompvare = null;
-        onExecution = null;
+        onReady = null;
+        onPlaying = null;
         onPlay = null;
-        onPlayEnd = null;
+        onEnded = null;
 
         isInit = false;
 
@@ -111,7 +111,7 @@
                 loader.push(e.target);
                 if (loader.length === imgs.length) {
                     loader = loader.sort((a, b) => a.index - b.index);
-                    onCompvare && onCompvare(loader);
+                    onReady && onReady(loader);
                     isInit = true;
                     if (autoplay) {
                         isPlay = true;
@@ -147,13 +147,13 @@
                     curIndex = 0;
                 } else {
                     isPlay = false;
-                    onPlayEnd && onPlayEnd();
+                    onEnded && onEnded();
                 }
             } else {
                 progress = curIndex / (loader.length - 1);
                 ctx.clearRect(0, 0, cvs.width, cvs.height);
                 ctx.drawImage(loader[curIndex++], 0, 0, cvs.width, cvs.height);
-                onExecution && onExecution(curIndex, progress);
+                onPlaying && onPlaying(curIndex, progress);
             }
             lastTime = nowTime;
         }
